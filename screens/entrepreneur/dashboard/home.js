@@ -15,501 +15,155 @@ import {
     Text,
     TextInput,
     TouchableOpacity,
-    View, Modal, FlatList
+    View, Modal, FlatList,
 } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { COLORS, images, SIZES, GRADIENTS } from '../../../constants';
 import { Avatar, Title } from 'react-native-paper';
 import ModalLayout from './ModalLayout';
+import { FAB, Card } from 'react-native-elements';
 // import auth from '@react-native-firebase/auth';
 
 // eslint-disable-next-line react/prop-types,@typescript-eslint/ban-ts-comment
 // @ts-ignore
 // eslint-disable-next-line react/prop-types
-const Card = (props) => {
-    // props.data.index
-    // { data, deleteEvent, navigation ,key}
-    const {updateEvent} = useData();
-    let data = props.data.item;
-    let deleteEvent = props.data.deleteEvent;
-    let navigation = props.data.navigation;
-    let key = props.data.key;
-    const [name, setName] = React.useState('my name');
-    const [date, setDate] = React.useState(new Date());
-    const [time, setTime] = React.useState('');
-    const [address, setAddress] = React.useState('');
-    const [description, setDescription] = React.useState('');
-    const [editVisible, setEditVisible] = useState(false);
-    const [modalVisible, setModalVisible] = useState(false);
-    const [inputVisible, setInputVisible] = React.useState(false);
-    const [inputTimeVisible, setTimeInputVisible] = React.useState(false);
+
+const CustomCard = (props) => {
+    const [visible, setVisible] = useState(false);
     return (
-        <View key={key} style={styles.card}>
-            <View style={styles.EventDetails}>
-                <View style={{ justifyContent: 'center', alignItems: 'center', margin: 5 }}>
-                    <Text style={{ color: '#000000', fontSize: 22, fontWeight: 'bold' }}>{data.name}</Text>
-                </View>
-                <View style={{ flexDirection: 'row' }}>
-                    <Icon name="update" size={24} color="black" />
-                    <Text style={{ fontSize: 18, color: 'black', marginLeft: 10 }}>
-                        Date:{data.date}
-                    </Text>
-                </View>
-                <View style={{ flexDirection: 'row' }}>
-                    <Icon name="camera-timer" size={24} color="black" />
-                    <Text style={{ fontSize: 18, color: 'black', marginLeft: 10 }}>
-                        Time:{data.time}
-                    </Text>
-                </View>
-                <View style={{ flexDirection: 'row' }}>
-                    {/* <Icon name="location-enter" size={24} color="black" /> */}
-                    <Ionicons name="location" size={24} color="black" />
-                    <Text style={{ fontSize: 18, color: 'black', marginLeft: 10 }}>
-                        Address: {data.address}
-                    </Text>
-                </View>
-                <View >
-                    <View style={{ flexDirection: 'row', paddingBottom: 10 }}>
-                        {/* <Icon name="location-enter" size={24} color="black" /> */}
-                        <MaterialIcons name="description" size={24} color="black" />
-                        <Text style={{ fontSize: 18, color: 'black', marginLeft: 10 }}>
-                            Description:
-                        </Text>
+        <View>
+            <TouchableOpacity onPress={() => {
+                setVisible(true);
+            }}>
+                <View style={{
+                    backgroundColor: '#F7F7FE', borderRadius: 10, marginBottom: 15,
+                    padding: 5, shadowColor: 'black',
+                    shadowOffset: {
+                        width: 10,
+                        height: 10,
+                    },
+                    shadowOpacity: 0.5,
+                    shadowRadius: 1,
+                    elevation: 10,
+                }}>
+                    <View>
+                        {true ? (<Image style={{
+                            width: '100%',
+                            height: 200,
+                            borderRadius: 1,
+                        }} source={{ uri: 'https://clashofclans.com/uploaded-images-blog/_1440xAUTO_crop_center-center_90/Clash-at-Home_thumbnail_builder_906x506.jpg' }} />) :
+                            <View>
+                                <Text>Hello</Text>
+                            </View>}
+                        <View style={{ padding: 10 }}>
+                            <Text style={{ fontSize: 23, color: 'black' }}>Here we Go!</Text>
+                            <Text>We will remove extra Barracks and Dark Barracks buildings and
+                                only keep one of each. The highest level building will be kept,
+                                and in case all the highest level buildings are under construction
+                                you will keep the one with the shortest upgrade time left.</Text>
+                        </View>
                     </View>
-                    <Text>{data.description}</Text>
                 </View>
-                <View style={{ flexDirection: 'row', marginTop: 10, flex: 1 }}>
-                    <LinearGradient
-                        colors={GRADIENTS.info}
-                        end={{ x: 0, y: 1 }}
-                        start={{ x: 1, y: 0 }}
-                        style={{ borderRadius: 30 }}
-                    >
-                        <TouchableOpacity
-                            style={{
-                                alignItems: "center",
-                                padding: 10,
-                                flexDirection: 'row'
-                            }}
-                            onPress={() => { setModalVisible(true); }}
-                        >
-                            <MaterialIcons name="account-tree" size={24} color="black" />
-                            <Text style={{ color: 'black' }}>Details</Text>
-                        </TouchableOpacity>
-                    </LinearGradient>
-                    <LinearGradient
-                        colors={GRADIENTS.success}
-                        end={{ x: 0, y: 1 }}
-                        start={{ x: 1, y: 0 }}
-                        style={{ borderRadius: 30, marginLeft: '10%' }}
-                    >
-                        <TouchableOpacity
-                            style={{
-                                alignItems: "center",
-                                padding: 10,
-                                flexDirection: "row",
-                            }}
-                            onPress={() => {
-                                setName(data.name);
-                                setDate(data.date);
-                                setTime(data.time);
-                                setAddress(data.address)
-                                setDescription(data.description)
-                                setEditVisible(true);
-                            }}
-                        >
-                            <MaterialIcons name="edit" size={24} color="black" />
-                            <Text style={{ color: 'black' }}>Edit</Text>
-                        </TouchableOpacity>
-                    </LinearGradient>
-                    <LinearGradient
-                        colors={GRADIENTS.secondary}
-                        end={{ x: 0, y: 1 }}
-                        start={{ x: 1, y: 0 }}
-                        style={{ borderRadius: 30, marginLeft: '17%' }}
-                    >
-                        <TouchableOpacity
-                            style={{
-                                alignItems: "center",
-                                padding: 10,
-                                flexDirection: "row",
-                            }}
-                            onPress={() => {
-                                deleteEvent(data).then((item) => {
-                                    alert("Event deleted successfully!");
-                                    navigation.push('Dashbord');
-                                }).catch((err) => {
-                                    alert(err.message);
-                                });
-                            }}
-                        >
-                            <MaterialIcons name="delete" size={24} color="black" />
-                            <Text style={{ color: 'black' }}>Delete</Text>
-                        </TouchableOpacity>
-                    </LinearGradient>
-                </View>
-            </View>
+            </TouchableOpacity>
             <Modal
                 animationType="slide"
                 transparent={true}
-                visible={modalVisible}
+                visible={visible}
                 onRequestClose={() => {
-                    setModalVisible(!modalVisible);
-                }}
-            >
-                <View style={styles.centeredView}>
-                    <View style={styles.modalView}>
-                        <View style={{ margin: 5 }}>
-                            <TouchableOpacity onPress={() => setModalVisible(false)}>
-                                <Image
-                                    style={{
-                                        width: 20,
-                                        height: 20,
-                                        borderRadius: 10
-                                    }}
-                                    source={require('../../../assets/icons/close-icon.png')}
-                                />
-                            </TouchableOpacity>
-                        </View>
-                        {/* ====================================================================================== */}
-                        <View style={styles.modalContainer}>
-                            <FlatList
-                                data={data.attending}
-                                keyExtractor={({ item, index }) => index}
-                                renderItem={({ item, index, separators }) => (
-                                    <View key={index} style={{ flexDirection: 'row', padding: 15, marginBottom: 10, backgroundColor: '#D8D6E6', borderRadius: 30 }}>
-                                        <Avatar.Image
-                                            source={{
-                                                uri: item.photoUrl
-                                            }}
-                                            size={80}
-                                        />
-                                        <View>
-                                            <View style={{ marginLeft: 20 }}>
-                                                <Title
-                                                    style={
-                                                        {
-                                                            marginTop: 15,
-
-                                                            color: 'black'
-                                                        }
-                                                    }
-                                                >
-                                                    {item.name}
-                                                </Title>
-                                            </View>
-                                            <View style={{ marginLeft: 20 }}>
-                                                <Title
-                                                    style={
-                                                        {
-                                                            color: 'black'
-                                                        }
-                                                    }
-                                                >
-                                                    {item.email}
-                                                </Title>
-                                            </View>
-                                        </View>
-                                    </View>
-                                )}
-                            />
-
-                        </View>
-                        {/* ====================================================================================== */}
-                    </View>
-                </View>
-            </Modal>
-            <Modal
-                animationType="slide"
-                transparent={true}
-                visible={editVisible}
-                onRequestClose={() => {
-                    setEditVisible(!editVisible);
+                    setVisible(!visible);
                 }}
             >
                 <ModalLayout
                     onClose={() => {
-                        setEditVisible(!editVisible);
+                        setVisible(!visible);
                     }}
                 >
-                    <View style={{ margin: 10 }}>
-                        <View >
-                            <Text style={{ fontSize: 22, marginLeft: 10, color: 'black' }}>Event Name</Text>
-                            <View style={styles.textBoxSign}>
-                                <TextInput
-                                    placeholder="Enter your Event Name"
-                                    onChangeText={value => setName(value)}
-                                    placeholderTextColor="gray"
-                                    autoCapitalize={'none'}
-                                    value={name}
-                                    style={{
-                                        flex: 1,
-                                        height: 40.5,
-                                        fontSize: 15,
-                                        marginLeft: 2,
-                                        color: 'black'
-                                    }}
-                                />
+                    <View >
+                        <View>
+                            {true ? (<Image style={{
+                                width: '100%',
+                                height: 200,
+                                borderRadius: 1,
+                            }} source={{ uri: 'https://clashofclans.com/uploaded-images-blog/_1440xAUTO_crop_center-center_90/Clash-at-Home_thumbnail_builder_906x506.jpg' }} />) :
+                                <View>
+                                    <Text>Hello</Text>
+                                </View>}
+                            <View style={{ padding: 10 }}>
+                                <Text style={{ fontSize: 23, color: 'black' }}>Here we Go!</Text>
+                                <Text>We will remove extra Barracks and Dark Barracks buildings and
+                                    only keep one of each. The highest level building will be kept,
+                                    and in case all the highest level buildings are under construction
+                                    you will keep the one with the shortest upgrade time left....</Text>
+                                    
                             </View>
-                        </View>
-                        <View >
-                            <Text style={{ fontSize: 22, marginLeft: 10, color: 'black' }}>Enter Date</Text>
-                            <View style={styles.textBoxSign}>
-                                <TextInput
-                                    placeholder="Enter Date"
-                                    onChangeText={value => setDate(value)}
-                                    placeholderTextColor="gray"
-                                    value={date}
-                                    autoCapitalize={'none'}
-                                    style={{
-                                        flex: 1,
-                                        height: 40.5,
-                                        fontSize: 15,
-                                        marginLeft: 2,
-                                        color: 'black'
-                                    }}
-                                />
-                            </View>
-                        </View>
-                        <View >
-                            <Text style={{ fontSize: 22, marginLeft: 10, color: 'black' }}>Enter Time</Text>
-                            <View style={styles.textBoxSign}>
-                                <TextInput
-                                    placeholder="Enter Time"
-                                    onChangeText={value => setTime(value)}
-                                    placeholderTextColor="gray"
-                                    autoCapitalize={'none'}
-                                    value={time}
-                                    style={{
-                                        flex: 1,
-                                        height: 40.5,
-                                        fontSize: 15,
-                                        marginLeft: 2,
-                                        color: 'black'
-                                    }}
-                                />
-                            </View>
-                        </View>
-                        <View >
-                            <Text style={{ fontSize: 22, marginLeft: 10, color: 'black' }}>Enter Address</Text>
-                            <View style={styles.textBoxSign}>
-                                <TextInput
-                                    placeholder="Enter Address of event ..."
-                                    placeholderTextColor="gray"
-                                    onChangeText={value => setAddress(value)}
-                                    value={address}
-                                    autoCapitalize={'none'}
-                                    style={{
-                                        flex: 1,
-                                        height: 40.5,
-                                        fontSize: 15,
-                                        marginLeft: 2,
-                                        color: 'black'
-                                    }}
-                                />
-                            </View>
-                        </View>
-                        <View >
-                            <Text style={{ fontSize: 22, marginLeft: 10, color: 'black' }}>Enter Description</Text>
-                            <View style={styles.textBoxSign}>
-                                <TextInput
-                                    placeholder="Enter a description"
-                                    placeholderTextColor="gray"
-                                    onChangeText={value => setDescription(value)}
-                                    value={description}
-                                    autoCapitalize={'none'}
-                                    style={{
-                                        flex: 1,
-                                        height: 40.5,
-                                        fontSize: 15,
-                                        marginLeft: 2,
-                                        color: 'black'
-                                    }}
-                                />
-                            </View>
-                        </View>
-                        <View style={{  justifyContent: 'center', alignItems: 'center', marginTop: 20 }}>
-                            <LinearGradient
-                                colors={GRADIENTS.info}
-                                end={{ x: 0, y: 1 }}
-                                start={{ x: 1, y: 0 }}
-                                style={{ width: "80%", borderRadius: 30 }}
-                            >
-                                <TouchableOpacity
-                                    style={{
-                                        alignItems: "center",
-                                        padding: 10,
-                                    }}
-                                    onPress={() => {
-                                        
-                                        if (name !== '' && date !== '' && time !== '' && address !== '' && description !== '') {
-                                            updateEvent(data,name,date,time,address,description).then((item)=>{
-                                                alert("update event");
-                                                navigation.push("Dashbord");
-                                            })
-                                        } else {
-                                            alert('Please enter a valid details');
-                                        }
-                                    }}
-                                >
-                                    <Text style={{ color: '#ffffff', fontSize: 20 }}>Update</Text>
-                                </TouchableOpacity>
-                            </LinearGradient>
-                        </View>
 
+                            <View style={{ flexDirection: 'row', marginTop: 10, }}>
+                                <LinearGradient
+                                    colors={['#21D4FD', '#2152FF']}
+                                    end={{ x: 0, y: 1 }}
+                                    start={{ x: 1, y: 0 }}
+                                    style={{ borderRadius: 30 }}
+                                >
+                                    <TouchableOpacity
+                                        style={{
+                                            alignItems: "center",
+                                            padding: 10,
+                                            flexDirection: 'row'
+                                        }}
+                                        onPress={() => { alert('working') }}
+                                    >
+                                        <MaterialIcons name="account-tree" size={24} color="black" />
+                                        <Text style={{ color: 'black' }}>Details</Text>
+                                    </TouchableOpacity>
+                                </LinearGradient>
+                                <LinearGradient
+                                    colors={ ['#FF0080', '#7928CA']}
+                                    end={{ x: 0, y: 1 }}
+                                    start={{ x: 1, y: 0 }}
+                                    style={{ borderRadius: 30, marginLeft: '10%' }}
+                                >
+                                    <TouchableOpacity
+                                        style={{
+                                            alignItems: "center",
+                                            padding: 10,
+                                            flexDirection: "row",
+                                        }}
+                                        onPress={() => {
+                                            alert('working');
+                                        }}
+                                    >
+                                        <MaterialIcons name="edit" size={24} color="black" />
+                                        <Text style={{ color: 'black' }}>Edit</Text>
+                                    </TouchableOpacity>
+                                </LinearGradient>
+                                <LinearGradient
+                                    colors={['#FBCF33', '#F53939']}
+                                    end={{ x: 0, y: 1 }}
+                                    start={{ x: 1, y: 0 }}
+                                    style={{ borderRadius: 30, marginLeft: '17%' }}
+                                >
+                                    <TouchableOpacity
+                                        style={{
+                                            alignItems: "center",
+                                            padding: 10,
+                                            flexDirection: "row",
+                                        }}
+                                        onPress={() => {
+                                            alert('ok');
+                                        }}
+                                    >
+                                        <MaterialIcons name="delete" size={24} color="black" />
+                                        <Text style={{ color: 'black' }}>Delete</Text>
+                                    </TouchableOpacity>
+                                </LinearGradient>
+                            </View>
+                        </View>
                     </View>
                 </ModalLayout>
             </Modal>
         </View>
     );
 };
-const CardAttending = (props) => {
-    // props.data.index
-    // { data, deleteEvent, navigation ,key}
-    let data = props.data.item;
-    let deleteEvent = props.data.deleteMyAttendEvent;
-    let navigation = props.data.navigation;
-    let key = props.data.key;
-
-    const [modalVisible, setModalVisible] = useState(false);
-
-    return (
-        <View key={key} style={styles.card}>
-            <View style={styles.EventDetails}>
-                <View style={{ justifyContent: 'center', alignItems: 'center', margin: 5 }}>
-                    <Text style={{ color: '#000000', fontSize: 22, fontWeight: 'bold' }}>{data.name}</Text>
-                </View>
-                <View style={{ flexDirection: 'row' }}>
-                    <Icon name="update" size={24} color="black" />
-                    <Text style={{ fontSize: 18, color: 'black', marginLeft: 10 }}>
-                        Date:{data.date}
-                    </Text>
-                </View>
-                <View style={{ flexDirection: 'row' }}>
-                    <Icon name="camera-timer" size={24} color="black" />
-                    <Text style={{ fontSize: 18, color: 'black', marginLeft: 10 }}>
-                        Time:{data.time}
-                    </Text>
-                </View>
-                <View style={{ flexDirection: 'row' }}>
-                    {/* <Icon name="location-enter" size={24} color="black" /> */}
-                    <Ionicons name="location" size={24} color="black" />
-                    <Text style={{ fontSize: 18, color: 'black', marginLeft: 10 }}>
-                        Address: {data.address}
-                    </Text>
-                </View>
-                <View >
-                    <View style={{ flexDirection: 'row', paddingBottom: 10 }}>
-                        {/* <Icon name="location-enter" size={24} color="black" /> */}
-                        <MaterialIcons name="description" size={24} color="black" />
-                        <Text style={{ fontSize: 18, color: 'black', marginLeft: 10 }}>
-                            Description:
-                        </Text>
-                    </View>
-                    <Text>{data.description}</Text>
-                </View>
-                <View style={{ flexDirection: 'row', marginTop: 10, flex: 1 }}>
-                    <LinearGradient
-                        colors={GRADIENTS.secondary}
-                        end={{ x: 0, y: 1 }}
-                        start={{ x: 1, y: 0 }}
-                        style={{ borderRadius: 30 }}
-                    >
-                        <TouchableOpacity
-                            style={{
-                                alignItems: "center",
-                                padding: 10,
-                                flexDirection: "row",
-                            }}
-                            onPress={() => {
-                                deleteEvent(data).then((item) => {
-                                    alert("Event deleted successfully!");
-                                    navigation.push('Dashbord');
-                                }).catch((err) => {
-                                    alert(err.message);
-                                });
-                            }}
-                        >
-                            <MaterialIcons name="delete" size={24} color="black" />
-                            <Text style={{ color: 'black' }}>Delete</Text>
-                        </TouchableOpacity>
-                    </LinearGradient>
-                </View>
-            </View>
-            <Modal
-                animationType="slide"
-                transparent={true}
-                visible={modalVisible}
-                onRequestClose={() => {
-                    setModalVisible(!modalVisible);
-                }}
-            >
-                <View style={styles.centeredView}>
-                    <View style={styles.modalView}>
-                        <View style={{ margin: 5 }}>
-                            <TouchableOpacity onPress={() => setModalVisible(false)}>
-                                <Image
-                                    style={{
-                                        width: 20,
-                                        height: 20,
-                                        borderRadius: 10
-                                    }}
-                                    source={require('../../../assets/icons/close-icon.png')}
-                                />
-                            </TouchableOpacity>
-                        </View>
-                        {/* ====================================================================================== */}
-                        <View style={styles.modalContainer}>
-                            <FlatList
-                                data={data.attending}
-                                keyExtractor={({ item, index }) => index}
-                                renderItem={({ item, index, separators }) => (
-                                    <View key={index} style={{ flexDirection: 'row', padding: 15, marginBottom: 10, backgroundColor: '#D8D6E6', borderRadius: 30 }}>
-                                        <Avatar.Image
-                                            source={{
-                                                uri: item.photoUrl
-                                            }}
-                                            size={80}
-                                        />
-                                        <View>
-                                            <View style={{ marginLeft: 20 }}>
-                                                <Title
-                                                    style={
-                                                        {
-                                                            marginTop: 15,
-
-                                                            color: 'black'
-                                                        }
-                                                    }
-                                                >
-                                                    {item.name}
-                                                </Title>
-                                            </View>
-                                            <View style={{ marginLeft: 20 }}>
-                                                <Title
-                                                    style={
-                                                        {
-                                                            color: 'black'
-                                                        }
-                                                    }
-                                                >
-                                                    {item.email}
-                                                </Title>
-                                            </View>
-                                        </View>
-                                    </View>
-                                )}
-                            />
-
-                        </View>
-                        {/* ====================================================================================== */}
-                    </View>
-                </View>
-            </Modal>
-        </View>
-    );
-};
-
 const Profile = ({ navigation }) => {
     return (
         <ImageBackground
@@ -526,7 +180,7 @@ const Profile = ({ navigation }) => {
                         style={{
                             flex: 1,
                         }}>
-                        <View style={{ margin:15,marginTop: 10 }}>
+                        <View style={{ margin: 15, marginTop: 10 }}>
                             <View style={{ margin: 5, justifyContent: 'center', alignItems: 'center', fontWeight: 'bold' }}>
                                 <Text style={{ fontSize: 30, color: 'black' }}>Entrepreneur Dashboard</Text>
                             </View>
@@ -554,27 +208,22 @@ const Profile = ({ navigation }) => {
                             </View>
 
                             <View style={styles.OrganizedEvent}>
-                                <Text style={{ fontSize: 30, color: 'black',justifyContent:'center',alignItems:'center' }}>My Post</Text>
+                                <Text style={{ fontSize: 30, color: 'black' }}>My Proposal</Text>
                                 <View style={{ marginTop: 10 }}>
-                                    {/* {event.map((item, index) => {
-                                        console.log(index);
-                                        return (<Card key={index} data={{ item, index, navigation, deleteEvent }} />);
-                                    })} */}
-                                </View>
-                            </View>
-                            <View style={styles.OrganizedEvent}>
-                                <Text style={{ fontSize: 30, color: 'black' }}>Attending Event</Text>
-                                <View style={{ marginTop: 10 }}>
-                                    {/* {attendEvent.map((item, index) => {
-                                        console.log(index);
-                                        return (<CardAttending key={index} data={{ item, index, navigation, deleteMyAttendEvent }} />);
-                                    })} */}
+                                    <CustomCard />
+                                    <CustomCard />
+                                    <CustomCard />
+                                    <CustomCard />
+                                    <CustomCard />
+                                    <CustomCard />
                                 </View>
                             </View>
                         </View>
                     </View>
                 </KeyboardAwareScrollView>
             </SafeAreaView>
+            <FAB onPress={() => { navigation.push('addProposal'); }} icon={<MaterialIcons name="add" size={24} color="white" />} placement={'right'} />
+
         </ImageBackground >
     );
 };
@@ -604,13 +253,13 @@ const styles = StyleSheet.create({
     },
     textAbove: { fontSize: 14, marginLeft: 12 },
     modalContainer: {
-        margin: 10
+        margin: 10,
     },
     centeredView: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        margin: 12
+        margin: 12,
 
     },
     modalView: {
@@ -623,11 +272,11 @@ const styles = StyleSheet.create({
         // shadowColor: "#000",
         shadowOffset: {
             width: 0,
-            height: 2
+            height: 2,
         },
         shadowOpacity: 0.25,
         shadowRadius: 4,
-        elevation: 5
+        elevation: 5,
     },
     EventDetails: {
 
@@ -639,7 +288,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
     },
     OrganizedEvent: {
-        margin: 10
+        margin: 10,
     },
     shadow: {
         shadowColor: '#000', // for iphone drop shadow (specifies the android equivalent, elevation: 1)
@@ -657,6 +306,6 @@ const styles = StyleSheet.create({
 
     row: {
         flexDirection: 'row',
-        marginBottom: 10
+        marginBottom: 10,
     },
 });
