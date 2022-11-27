@@ -16,6 +16,7 @@ import {
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 // import auth from '@react-native-firebase/auth';
 import { COLORS, images, SIZES } from '../../../constants';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 // eslint-disable-next-line react/prop-types,@typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -101,7 +102,7 @@ const SignIn = ({ navigation }) => {
                   }}
                 />
               </View>
-              <Text style={{ fontSize: 14, marginLeft: 12, marginTop: 30 , color: 'black' }}>
+              <Text style={{ fontSize: 14, marginLeft: 12, marginTop: 30, color: 'black' }}>
                 Email or Phone Number
               </Text>
               <View style={styles.textBoxSign}>
@@ -129,7 +130,7 @@ const SignIn = ({ navigation }) => {
                 />
               </View>
 
-              <Text style={{ fontSize: 14, marginLeft: 12, marginTop: 30 , color: 'black' }}>
+              <Text style={{ fontSize: 14, marginLeft: 12, marginTop: 30, color: 'black' }}>
                 Password
               </Text>
               <View style={styles.textBoxSign}>
@@ -174,7 +175,7 @@ const SignIn = ({ navigation }) => {
                   )}
                 </TouchableOpacity>
               </View>
-              <Text style={{ fontSize: 14, marginLeft: 12, marginTop: 30 , color: 'black' }}>
+              <Text style={{ fontSize: 14, marginLeft: 12, marginTop: 30, color: 'black' }}>
                 Re-Enter Password
               </Text>
               <View style={styles.textBoxSign}>
@@ -220,22 +221,40 @@ const SignIn = ({ navigation }) => {
                 </TouchableOpacity>
               </View>
 
-              <Text style={{ fontSize: 14, marginLeft: 12, marginTop: 30 , color: 'black' }}>
+              <Text style={{ fontSize: 14, marginLeft: 12, marginTop: 30, color: 'black' }}>
                 Degree
               </Text>
               <View style={styles.textBoxSign}>
-                <Image
-                  source={images.person}
-                  resizeMode="contain"
+                <View style={{
+                  paddingTop: 7
+                }}>
+                  <Icon name="book-edit" size={24} color="black" />
+                </View>
+                <TextInput
+                  placeholder="Degree ..."
+                  onChangeText={value => setEmail(value)}
+                  autoCapitalize={'none'}
                   style={{
-                    width: 26,
-                    height: 40,
-                    right: 2,
-                    alignSelf: 'flex-start',
+                    flex: 1,
+                    height: 40.5,
+                    fontSize: 15,
+                    marginLeft: 2,
+                    color: 'black',
                   }}
                 />
+              </View>
+
+              <Text style={{ fontSize: 14, marginLeft: 12, marginTop: 30, color: 'black' }}>
+                Location
+              </Text>
+              <View style={styles.textBoxSign}>
+                <View style={{
+                  paddingTop: 7
+                }}>
+                  <Icon name="location-enter" size={24} color="black" />
+                </View>
                 <TextInput
-                  placeholder="Enter your email or phone number..."
+                  placeholder="Location"
                   onChangeText={value => setEmail(value)}
                   autoCapitalize={'none'}
                   style={{
