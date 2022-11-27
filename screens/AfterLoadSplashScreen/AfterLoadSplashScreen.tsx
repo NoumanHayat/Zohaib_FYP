@@ -1,6 +1,6 @@
 import React from 'react';
 import AppIntroSlider from 'react-native-app-intro-slider';
-import { COLORS, values } from '../../constants';
+import { COLORS, values , images } from '../../constants';
 import { StatusBar, View } from 'react-native';
 import FastImage, { Source } from 'react-native-fast-image';
 import AppText from '../../components/AppText';
@@ -10,25 +10,25 @@ import styles from './AfterLoadSplashScreen.styles';
 const slides: { key: string; title: string; text: string; image: Source; backgroundColor: string }[] = [
   {
     key: 'one',
-    title: 'Base Layout',
-    text: "Do you want new bases everyday?\n\nThen you are at the right place.Here our team with many clasher share there bases everyday.",
-    image: values.barbarian,
-    backgroundColor: '#59b2ab'
+    title: 'Got an Idea',
+    text: 'Do you have a great business idea?\n\nAnd you do not have money? Then you are at the right place ',
+    image: images.introPic0,
+    backgroundColor: '#59b2ab',
   },
   {
     key: 'two',
-    title: 'Attack stages',
-    text: 'Do you want to improve your attack strategy?\n\n or you want to push rank here you can get  attack strategy of top players. ',
-    image: values.wizard,
-    backgroundColor: '#febe29'
+    title: 'Look for investor?',
+    text: 'Here you can share your idea and look for investor.\n\n You can get bids for a great business idea and work with most suitable ',
+    image: images.introPic1,
+    backgroundColor: '#febe29',
   },
   {
     key: 'three',
-    title: 'Clan Promotion!',
-    text: 'Want to Recruit permanent new players or temporary players for CWl!!\n\n Come and promote your can here.',
-    image: values.king,
-    backgroundColor: '#22bcb5'
-  }
+    title: 'Looking for investment ',
+    text: 'Are you looking for new Business!\n\n You can look here for business and invest.',
+    image: images.introPic2,
+    backgroundColor: '#22bcb5',
+  },
 ];
 
 type AfterLoadSplashScreenProps = { onGetStarted: () => void };

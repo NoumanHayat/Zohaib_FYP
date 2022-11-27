@@ -25,66 +25,36 @@ const Screen = ({ navigation }) => {
                 flex: 1,
                 paddingVertical: SIZES.padding,
             }}>
-            <View style={{ flex: 0.4, justifyContent: 'center', alignItems: 'center' }}>
-                <Text style={{ fontSize: 35, color: 'black', fontWeight: "bold" }}>Clash Of Clan Tools</Text>
+            <View style={{ flex: 0.8, justifyContent: 'center', alignItems: 'center' }}>
+                <Text style={{ fontSize: 35, color: 'black', fontWeight: "bold" }}>Please Select User Type?</Text>
             </View>
-            <View style={{ flex: 1, alignItems: 'center' }}>
+            <View style={{ flex: 1, alignItems: 'center'}}>
                 <View style={{ flexDirection: 'row' }}>
                     <View style={{ width: '50%' }}>
                         <Card style={{ justifyContent: 'center', alignItems: 'center' }}>
-                            <TouchableOpacity onPress={() => { navigation.push("attack Strategies"); }}>
+                            <TouchableOpacity onPress={() => { navigation.push("investor"); }}>
                                 <View style={{ alignItems: 'center', padding: 20,paddingBottom:0 }}>
                                     <Card.Image
                                         style={{ width: 80, height: 70 }}
                                         resizeMode="cover"
-                                        source={images.cocattack}
+                                        source={{uri:'https://images.ctfassets.net/6hm9tr1vnfzt/EXzxTBMVMAG4j4L73OVh0/4471a9d56eb999f3836ab3a5f7913f26/Blade1_Hero.jpg'}}
                                     />
                                 </View>
-                                <Card.Title>attack strategies</Card.Title>
+                                <Card.Title>Entrepreneur</Card.Title>
                             </TouchableOpacity>
                         </Card>
                     </View>
                     <View style={{ width: '50%' }}>
                         <Card style={{ justifyContent: 'center', alignItems: 'center' }}>
-                            <TouchableOpacity onPress={() => { navigation.push("Town hall Base"); }}>
+                            <TouchableOpacity onPress={() => { navigation.push("investor"); }}>
                                 <View style={{ alignItems: 'center', padding: 20,paddingBottom:0 }}>
                                     <Card.Image
                                         style={{ width: 70, height: 70 }}
                                         resizeMode="cover"
-                                        source={{uri:'https://static.wikia.nocookie.net/clashofclans/images/1/1d/Giga_Inferno15-5.png'}}
+                                        source={{uri:'https://www.shutterstock.com/image-photo/investor-business-concept-600w-204816103.jpg'}}
                                     />
                                 </View>
-                                <Card.Title>TownHall base</Card.Title>
-                            </TouchableOpacity>
-                        </Card>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row' }}>
-                    <View style={{ width: '50%' }}>
-                        <Card style={{ justifyContent: 'center', alignItems: 'center' }}>
-                            <TouchableOpacity onPress={() => { navigation.push("Builder Hall Base"); }}>
-                                <View style={{ alignItems: 'center', padding: 20,paddingBottom:0 }}>
-                                    <Card.Image
-                                        style={{ width: 70, height: 70 }}
-                                        resizeMode="cover"
-                                        source={{uri:'https://static.wikia.nocookie.net/clashofclans/images/4/43/Builder_Hall9.png'}}
-                                    />
-                                </View>
-                                <Card.Title>Builder Base</Card.Title>
-                            </TouchableOpacity>
-                        </Card>
-                    </View>
-                    <View style={{ width: '50%' }}>
-                        <Card style={{ justifyContent: 'center', alignItems: 'center' }}>
-                            <TouchableOpacity onPress={() => { navigation.push("Clash News"); }}>
-                                <View style={{ alignItems: 'center', padding: 20,paddingBottom:10 }}>
-                                    <Card.Image
-                                        style={{ width: 70, height: 60 }}
-                                        resizeMode="cover"
-                                        source={images.cocsetting}
-                                    />
-                                </View>
-                                <Card.Title>COC News</Card.Title>
+                                <Card.Title>investor</Card.Title>
                             </TouchableOpacity>
                         </Card>
                     </View>

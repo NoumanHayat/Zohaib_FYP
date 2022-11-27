@@ -8,25 +8,20 @@ import {
   View,
 } from 'react-native';
 import {COLORS} from './constants';
-
 import SplashScreen from 'react-native-splash-screen';
 import AfterLoadSplashScreen from './screens/AfterLoadSplashScreen/AfterLoadSplashScreen';
 import {DataProvider} from './screens/hooks';
-// import Notification from './screens/Dashbord/notification';
 import Home from './screens/Dashbord/home';
-import Townhall from './screens/Dashbord/Townhall';
-import BuilderHall from './screens/Dashbord/BuilderHall';
-import attackStrategies from './screens/Dashbord/attackStrategies';
-import clashNews from './screens/Dashbord/clashNews';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import investor from './screens/investor';
 
 const Stack = createNativeStackNavigator();
 const AppStarting = () => {
   useEffect(() => {
     SplashScreen.hide();
   });
-  const [getStarted, setGetStarted] = useState(true);
+  const [getStarted, setGetStarted] = useState(false);
 
   return !getStarted ? (
     <AfterLoadSplashScreen onGetStarted={() => setGetStarted(true)} />
@@ -46,15 +41,9 @@ const AppStarting = () => {
             // screenOptions={{
             //   headerShown: false,
             // }}
-            initialRouteName="Clash Tools">
-            <Stack.Screen name="Clash Tools" component={Home} />
-            <Stack.Screen name="Town hall Base" component={Townhall} />
-            <Stack.Screen name="Builder Hall Base" component={BuilderHall} />
-            <Stack.Screen
-              name="attack Strategies"
-              component={attackStrategies}
-            />
-            <Stack.Screen name="Clash News" children={clashNews} />
+            initialRouteName="Select Type">
+            <Stack.Screen name="Select Type" component={Home} />
+            <Stack.Screen name="investor" component={investor} />
           </Stack.Navigator>
         </NavigationContainer>
       </View>
