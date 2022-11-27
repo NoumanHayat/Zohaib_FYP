@@ -32,7 +32,7 @@ const Screen = ({ navigation }) => {
                 <View style={{ flexDirection: 'row' }}>
                     <View style={{ width: '50%' }}>
                         <Card style={{ justifyContent: 'center', alignItems: 'center' }}>
-                            <TouchableOpacity onPress={() => { navigation.push("investor"); }}>
+                            <TouchableOpacity onPress={() => { navigation.push("entrepreneur"); }}>
                                 <View style={{ alignItems: 'center', padding: 20,paddingBottom:0 }}>
                                     <Card.Image
                                         style={{ width: 80, height: 70 }}

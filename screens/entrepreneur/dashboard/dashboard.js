@@ -34,9 +34,9 @@ function AppStarting() {
         <Drawer.Navigator screenOptions={{
           headerShown: true,
         }}
-          initialRouteName='Home'
+          initialRouteName="dashboard"
         >
-          <Drawer.Screen name="Home" component={Screen} />
+          <Drawer.Screen name="dashboard" component={Screen} />
           <Drawer.Screen name="Search Drama" component={Screen} />
           <Drawer.Screen name="Search Result"  component={Screen} />
         </Drawer.Navigator>

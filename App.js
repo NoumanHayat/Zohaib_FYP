@@ -15,6 +15,7 @@ import Home from './screens/Dashbord/home';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import investor from './screens/investor';
+import entrepreneur from './screens/entrepreneur';
 
 const Stack = createNativeStackNavigator();
 const AppStarting = () => {
@@ -38,12 +39,13 @@ const AppStarting = () => {
         <NavigationContainer>
           {/* <StatusBar barStyle="dark-content" backgroundColor={COLORS.white} /> */}
           <Stack.Navigator
-            // screenOptions={{
-            //   headerShown: false,
-            // }}
+            screenOptions={{
+              headerShown: false,
+            }}
             initialRouteName="Select Type">
             <Stack.Screen name="Select Type" component={Home} />
             <Stack.Screen name="investor" component={investor} />
+            <Stack.Screen name="entrepreneur" component={entrepreneur} />
           </Stack.Navigator>
         </NavigationContainer>
       </View>
