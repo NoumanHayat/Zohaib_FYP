@@ -17,6 +17,7 @@ const Stack = createNativeStackNavigator();
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SignUp from './account/SignUp';
 import SignIn from './account/SignIn';
+import dashboard from './dashboard';
 // import { TouchableOpacity } from 'react-native-gesture-handler';
 const Screen = ({ navigation }) => {
   return (
@@ -42,7 +43,7 @@ function AppStarting() {
       initialRouteName="SignIn">
       <Stack.Screen name="SignUp" component={SignUp} />
       <Stack.Screen name="SignIn" component={SignIn} />
-      <Stack.Screen name="dashboard" component={Screen} />
+      <Stack.Screen name="dashboard" component={dashboard} />
     </Stack.Navigator>
   );
 }

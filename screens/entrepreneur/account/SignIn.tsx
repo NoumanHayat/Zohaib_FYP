@@ -11,14 +11,14 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 // import auth from '@react-native-firebase/auth';
-import {COLORS, images, SIZES} from '../../../constants';
+import { COLORS, images, SIZES } from '../../../constants';
 
 // eslint-disable-next-line react/prop-types,@typescript-eslint/ban-ts-comment
 // @ts-ignore
 // eslint-disable-next-line react/prop-types
-const SignIn = ({navigation}) => {
+const SignIn = ({ navigation }) => {
   // let currentUser = auth().currentUser;
   const [data, setData] = React.useState({
     password: '',
@@ -97,7 +97,7 @@ const SignIn = ({navigation}) => {
                 />
               </View>
 
-              <Text style={{fontSize: 14, marginLeft: 12, marginTop: 30}}>
+              <Text style={{ fontSize: 14, marginLeft: 12, marginTop: 30 }}>
                 Password
               </Text>
               <View style={styles.textBoxSign}>
@@ -125,18 +125,18 @@ const SignIn = ({navigation}) => {
                 />
                 <TouchableOpacity
                   onPress={updateSecureTextEntry}
-                  style={{alignItems: 'flex-end'}}>
+                  style={{ alignItems: 'flex-end' }}>
                   {data.secureTextEntry ? (
                     <Image
                       source={images.eyeclosed}
                       resizeMode="contain"
-                      style={{width: 25, height: 40}}
+                      style={{ width: 25, height: 40 }}
                     />
                   ) : (
                     <Image
                       source={images.eye}
                       resizeMode="contain"
-                      style={{width: 25, height: 40}}
+                      style={{ width: 25, height: 40 }}
                     />
                   )}
                 </TouchableOpacity>
@@ -191,7 +191,7 @@ const SignIn = ({navigation}) => {
                   marginTop: SIZES.radius * 2.5,
                   justifyContent: 'center',
                 }}>
-                <Text style={{color: COLORS.gray}}>
+                <Text style={{ color: COLORS.gray }}>
                   Don&apos;t have an account?{' '}
                 </Text>
 
@@ -235,7 +235,7 @@ const SignIn = ({navigation}) => {
                     ...styles.shadow,
                   }}
                   onPress={() => {
-                    alert('working');
+                    navigation.push('dashboard');
                   }}>
                   <Image
                     source={images.google}
@@ -260,7 +260,7 @@ const SignIn = ({navigation}) => {
                     ...styles.shadow,
                   }}
                   onPress={() => {
-                    alert('Working');
+                    navigation.push('dashboard');
                   }}>
                   <Text
                     style={{
@@ -304,5 +304,5 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.lightGray,
     elevation: 2,
   },
-  textAbove: {fontSize: 14, marginLeft: 12},
+  textAbove: { fontSize: 14, marginLeft: 12 },
 });

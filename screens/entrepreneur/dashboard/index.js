@@ -12,7 +12,7 @@ import {
     Text,
     View,
 } from 'react-native';
-import { images, SIZES } from '../../constants';
+import { images, SIZES } from '../../../constants';
 // import { TouchableOpacity } from 'react-native-gesture-handler';
 const Screen = ({ navigation }) => {
     return (
@@ -34,9 +34,9 @@ function AppStarting() {
         <Drawer.Navigator screenOptions={{
           headerShown: true,
         }}
-          initialRouteName="dashboard"
+          initialRouteName="Home"
         >
-          <Drawer.Screen name="dashboard" component={Screen} />
+          <Drawer.Screen name="Home" component={Screen} />
           <Drawer.Screen name="Search Drama" component={Screen} />
           <Drawer.Screen name="Search Result"  component={Screen} />
         </Drawer.Navigator>
