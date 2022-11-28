@@ -15,7 +15,6 @@ import {
 import { images, SIZES } from '../../../constants';
 import CustomDrawer from '../../Components/CustomDrawer';
 import home from './home';
-import addProposal from './addProposal';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 // import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -44,7 +43,7 @@ const AppStarting = () => {
           ),
         }}
       />
-      <Drawer.Screen
+      {/* <Drawer.Screen
         name="addProposal"
         component={addProposal}
         options={{
@@ -52,7 +51,7 @@ const AppStarting = () => {
             <Ionicons name="person-outline" size={22} color={color} />
           ),
         }}
-      />
+      /> */}
     </Drawer.Navigator>
   );
 };

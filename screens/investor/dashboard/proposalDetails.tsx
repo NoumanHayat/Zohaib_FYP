@@ -59,7 +59,7 @@ const CustomCard = (props) => {
                     </View>
                 </TouchableOpacity>
                 <View style={{ padding: 10 }}>
-                <Text style={{ fontSize: 19, color: 'black' }}>Bid : 4500RS</Text>
+                    <Text style={{ fontSize: 19, color: 'black' }}>Bid : 4500RS</Text>
                     <Text style={{ fontSize: 19, color: 'black' }}>Summary!</Text>
                     <Text>We will remove extra Barracks and Dark Barracks buildings and
                         only keep one of each. The highest level building will be kept,
@@ -173,12 +173,12 @@ const CustomCard = (props) => {
                                 <MaterialIcons name="email" size={24} color="black" />
                                 <Text style={{ fontSize: 18, color: 'black' }}>myemail@gmail.com</Text>
                             </View>
-                            <View style={{ flexDirection: 'row',  }}>
+                            <View style={{ flexDirection: 'row', }}>
                                 <MaterialIcons name="details" size={24} color="black" />
                                 <Text style={{ fontSize: 18, color: 'black' }}>Facebook, American online social network service
-                                 that is part of the company Meta Platforms. Facebook was founded in 2004 by Mark Zuckerberg,
-                                  Eduardo Saverin, Dustin Moskovitz, and Chris Hughes, all of whom were students at Harvard University.
-                                   Facebook became the largest social network in the world.</Text>
+                                    that is part of the company Meta Platforms. Facebook was founded in 2004 by Mark Zuckerberg,
+                                    Eduardo Saverin, Dustin Moskovitz, and Chris Hughes, all of whom were students at Harvard University.
+                                    Facebook became the largest social network in the world.</Text>
                             </View>
                         </View>
                     </View>
@@ -188,6 +188,7 @@ const CustomCard = (props) => {
     );
 };
 const Profile = ({ navigation }) => {
+    const [visible, setVisible] = useState(false);
     return (
         <ImageBackground
             source={images.background}
@@ -199,26 +200,160 @@ const Profile = ({ navigation }) => {
             }}>
             <SafeAreaView>
                 <KeyboardAwareScrollView>
-                    <View
-                        style={{
-                            flex: 1,
-                        }}>
-                        <View style={{ margin: 15, marginTop: 10 }}>
-                            <View style={{ margin: 5, justifyContent: 'center', alignItems: 'center', fontWeight: 'bold' }}>
-                                <Text style={{ fontSize: 30, color: 'black' }}>Proposal Details</Text>
-                            </View>
-                            <View style={styles.OrganizedEvent}>
-                                <View style={{ marginTop: 10 }}>
-                                    <CustomCard />
-                                    <CustomCard />
-                                    <CustomCard />
-                                    <CustomCard />
-                                    <CustomCard />
-                                    <CustomCard />
+                    <View style={{ margin: 20 }}>
+                        <View>
+                            <View>
+                                <Image style={{
+                                    width: '100%',
+                                    height: 200,
+                                    borderRadius: 1,
+                                }} source={{ uri: 'https://clashofclans.com/uploaded-images-blog/_1440xAUTO_crop_center-center_90/Clash-at-Home_thumbnail_builder_906x506.jpg' }} />
+                                <View style={{ padding: 10, justifyContent: 'center', alignItems: 'center' }}>
+                                    <Text style={{ fontSize: 23, color: 'black' }}>Here is title!</Text>
+                                </View>
+                                <View>
+                                    <Text style={{ color: 'black', fontSize: 17 }}>We will remove extra Barracks and Dark Barracks buildings and
+                                        only keep one of each. The highest level building will be kept,
+                                        and in case all the highest level buildings are under construction
+                                        you will keep the one with the shortest upgrade time left.</Text>
+                                    <Text style={{ color: 'black', fontSize: 17 }}>We will remove extra Barracks and Dark Barracks buildings and
+                                        only keep one of each. The highest level building will be kept,
+                                        and in case all the highest level buildings are under construction
+                                        you will keep the one with the shortest upgrade time left.</Text>
+                                </View>
+                                <View style={{ flexDirection: 'row', alignItems: 'center', }}>
+
+
+                                    <Text style={{ fontSize: 23, marginLeft: 10, color: 'black' }}>Document File</Text>
+
+                                    <View style={{
+                                        flexDirection: 'row',
+                                        height: 35,
+                                        marginHorizontal: 5,
+                                        marginTop: 5,
+                                        paddingHorizontal: SIZES.radius,
+                                        borderRadius: SIZES.radius,
+                                        backgroundColor: COLORS.lightGray,
+                                        // elevation: 2,
+                                        // justifyContent: 'space-between', 
+                                        alignItems: 'center',
+                                        marginLeft: "35%"
+                                    }}>
+                                        <TouchableOpacity onPress={() => { alert("working"); }}>
+                                            <Text style={{ color: 'black' }}>Download</Text>
+                                        </TouchableOpacity>
+                                    </View>
+                                </View>
+
+                                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 20 }}>
+                                    <LinearGradient
+                                        colors={['#21D4FD', '#2152FF']}
+                                        end={{ x: 0, y: 1 }}
+                                        start={{ x: 1, y: 0 }}
+                                        style={{ width: "80%", borderRadius: 30 }}
+                                    >
+                                        <TouchableOpacity
+                                            style={{
+                                                alignItems: "center",
+                                                padding: 10,
+                                            }}
+                                            onPress={() => {
+                                                setVisible(true);
+                                            }}
+                                        >
+                                            <Text style={{ color: '#ffffff', fontSize: 20 }}>Bid</Text>
+                                        </TouchableOpacity>
+                                    </LinearGradient>
                                 </View>
                             </View>
                         </View>
                     </View>
+                    <Modal
+                        animationType="slide"
+                        transparent={true}
+                        visible={visible}
+                        onRequestClose={() => {
+                            setVisible(!visible);
+                        }}
+                    >
+                        <ModalLayout
+                            onClose={() => {
+                                setVisible(!visible);
+                            }}
+                        >
+                            <View >
+                                <View >
+                                    <Text style={{ fontSize: 22, marginLeft: 10, color: 'black' }}>Amount</Text>
+                                    <View style={styles.textBoxSign}>
+                                        <TextInput
+                                            placeholder="Enter amount"
+                                            // onChangeText={value => setName(value)}
+                                            placeholderTextColor="gray"
+                                            autoCapitalize={'none'}
+                                            keyboardType='numeric'
+                                            style={{
+                                                flex: 1,
+                                                height: 40.5,
+                                                fontSize: 15,
+                                                marginLeft: 2,
+                                                color: 'black'
+                                            }}
+                                        />
+                                    </View>
+                                </View>
+                                <View >
+                                    <Text style={{ fontSize: 22, marginLeft: 10, color: 'black' }}>Proposal</Text>
+                                    <View style={{
+                                        flexDirection: 'row',
+                                        height: 245,
+                                        marginHorizontal: 5,
+                                        marginTop: 5,
+                                        paddingHorizontal: SIZES.radius,
+                                        borderRadius: SIZES.radius,
+                                        backgroundColor: COLORS.lightGray,
+                                        elevation: 2,
+                                    }}>
+                                        <TextInput
+                                            placeholder="Please Enter Proposal Details"
+                                            // onChangeText={value => setName(value)}
+                                            placeholderTextColor="gray"
+                                            autoCapitalize={'none'}
+                                            multiline={true}
+                                            numberOfLines={4}
+                                            style={{
+                                                flex: 1,
+                                                height: 240.5,
+                                                fontSize: 15,
+                                                marginLeft: 2,
+                                                color: 'black',
+
+                                            }}
+                                        />
+                                    </View>
+                                </View>
+                                <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 20 }}>
+                                    <LinearGradient
+                                        colors={['#21D4FD', '#2152FF']}
+                                        end={{ x: 0, y: 1 }}
+                                        start={{ x: 1, y: 0 }}
+                                        style={{ width: "80%", borderRadius: 30 }}
+                                    >
+                                        <TouchableOpacity
+                                            style={{
+                                                alignItems: "center",
+                                                padding: 10,
+                                            }}
+                                            onPress={() => {
+                                                setVisible(true);
+                                            }}
+                                        >
+                                            <Text style={{ color: '#ffffff', fontSize: 20 }}>Submit</Text>
+                                        </TouchableOpacity>
+                                    </LinearGradient>
+                                </View>
+                            </View>
+                        </ModalLayout>
+                    </Modal>
                 </KeyboardAwareScrollView>
             </SafeAreaView>
         </ImageBackground >

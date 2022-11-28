@@ -33,7 +33,7 @@ const CustomCard = ({navigation}) => {
     return (
         <View>
             <TouchableOpacity onPress={() => {
-                setVisible(true);
+                navigation.push('proposalDetails');
             }}>
                 <View style={{
                     backgroundColor: '#F7F7FE', borderRadius: 10, marginBottom: 15,
@@ -47,16 +47,13 @@ const CustomCard = ({navigation}) => {
                     elevation: 10,
                 }}>
                     <View>
-                        {true ? (<Image style={{
+                        <Image style={{
                             width: '100%',
                             height: 200,
                             borderRadius: 1,
-                        }} source={{ uri: 'https://clashofclans.com/uploaded-images-blog/_1440xAUTO_crop_center-center_90/Clash-at-Home_thumbnail_builder_906x506.jpg' }} />) :
-                            <View>
-                                <Text>Hello</Text>
-                            </View>}
+                        }} source={{ uri: 'https://clashofclans.com/uploaded-images-blog/_1440xAUTO_crop_center-center_90/Clash-at-Home_thumbnail_builder_906x506.jpg' }} />
                         <View style={{ padding: 10 }}>
-                            <Text style={{ fontSize: 23, color: 'black' }}>Here we Go!</Text>
+                            <Text style={{ fontSize: 23, color: 'black' }}>Here is title!</Text>
                             <Text>We will remove extra Barracks and Dark Barracks buildings and
                                 only keep one of each. The highest level building will be kept,
                                 and in case all the highest level buildings are under construction
@@ -65,102 +62,6 @@ const CustomCard = ({navigation}) => {
                     </View>
                 </View>
             </TouchableOpacity>
-            <Modal
-                animationType="slide"
-                transparent={true}
-                visible={visible}
-                onRequestClose={() => {
-                    setVisible(!visible);
-                }}
-            >
-                <ModalLayout
-                    onClose={() => {
-                        setVisible(!visible);
-                    }}
-                >
-                    <View >
-                        <View>
-                            {true ? (<Image style={{
-                                width: '100%',
-                                height: 200,
-                                borderRadius: 1,
-                            }} source={{ uri: 'https://clashofclans.com/uploaded-images-blog/_1440xAUTO_crop_center-center_90/Clash-at-Home_thumbnail_builder_906x506.jpg' }} />) :
-                                <View>
-                                    <Text>Hello</Text>
-                                </View>}
-                            <View style={{ padding: 10 }}>
-                                <Text style={{ fontSize: 23, color: 'black' }}>Here we Go!</Text>
-                                <Text>We will remove extra Barracks and Dark Barracks buildings and
-                                    only keep one of each. The highest level building will be kept,
-                                    and in case all the highest level buildings are under construction
-                                    you will keep the one with the shortest upgrade time left....</Text>
-                                    
-                            </View>
-
-                            <View style={{ flexDirection: 'row', marginTop: 10, }}>
-                                <LinearGradient
-                                    colors={['#21D4FD', '#2152FF']}
-                                    end={{ x: 0, y: 1 }}
-                                    start={{ x: 1, y: 0 }}
-                                    style={{ borderRadius: 30 }}
-                                >
-                                    <TouchableOpacity
-                                        style={{
-                                            alignItems: "center",
-                                            padding: 10,
-                                            flexDirection: 'row'
-                                        }}
-                                        onPress={() => { navigation.push("proposalDetails"); }}
-                                    >
-                                        <MaterialIcons name="account-tree" size={24} color="black" />
-                                        <Text style={{ color: 'black' }}>Details</Text>
-                                    </TouchableOpacity>
-                                </LinearGradient>
-                                <LinearGradient
-                                    colors={ ['#FF0080', '#7928CA']}
-                                    end={{ x: 0, y: 1 }}
-                                    start={{ x: 1, y: 0 }}
-                                    style={{ borderRadius: 30, marginLeft: '10%' }}
-                                >
-                                    <TouchableOpacity
-                                        style={{
-                                            alignItems: "center",
-                                            padding: 10,
-                                            flexDirection: "row",
-                                        }}
-                                        onPress={() => {
-                                            alert('working');
-                                        }}
-                                    >
-                                        <MaterialIcons name="edit" size={24} color="black" />
-                                        <Text style={{ color: 'black' }}>Edit</Text>
-                                    </TouchableOpacity>
-                                </LinearGradient>
-                                <LinearGradient
-                                    colors={['#FBCF33', '#F53939']}
-                                    end={{ x: 0, y: 1 }}
-                                    start={{ x: 1, y: 0 }}
-                                    style={{ borderRadius: 30, marginLeft: '17%' }}
-                                >
-                                    <TouchableOpacity
-                                        style={{
-                                            alignItems: "center",
-                                            padding: 10,
-                                            flexDirection: "row",
-                                        }}
-                                        onPress={() => {
-                                            alert('ok');
-                                        }}
-                                    >
-                                        <MaterialIcons name="delete" size={24} color="black" />
-                                        <Text style={{ color: 'black' }}>Delete</Text>
-                                    </TouchableOpacity>
-                                </LinearGradient>
-                            </View>
-                        </View>
-                    </View>
-                </ModalLayout>
-            </Modal>
         </View>
     );
 };
@@ -182,33 +83,11 @@ const Profile = ({ navigation }) => {
                         }}>
                         <View style={{ margin: 15, marginTop: 10 }}>
                             <View style={{ margin: 5, justifyContent: 'center', alignItems: 'center', fontWeight: 'bold' }}>
-                                <Text style={{ fontSize: 30, color: 'black' }}>Entrepreneur Dashboard</Text>
+                                <Text style={{ fontSize: 30, color: 'black' }}>Business Projects Proposal</Text>
                             </View>
-                            <View style={styles.userInfoSection}>
-                                <View style={{ flexDirection: 'row', marginTop: 15 }}>
-                                    <Avatar.Image
-                                        source={{ uri: 'https://scontent.fisb17-1.fna.fbcdn.net/v/t1.6435-9/91409052_532157781050259_1039077404946989056_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=7PRB9eFpSDcAX8ZElmv&tn=_pzfnWRgXbf6Di0O&_nc_pt=1&_nc_ht=scontent.fisb17-1.fna&oh=00_AfBO1xTZp0jgQMuO3OmssEqVM1LY60iETPpK-xYQ4ohC4Q&oe=63AAB594' }}
-                                        size={100}
-                                    />
-                                    <View style={{ marginLeft: 20 }}>
-                                        <View style={styles.row}>
-                                            <Icon name="account" size={20} color="black" />
-                                            <Text style={{ color: 'black', marginLeft: 3 }}>Nouman</Text>
-                                        </View>
-                                        <View style={styles.row}>
-                                            <Icon name="email" color="black" size={20} />
-                                            <Text style={{ color: 'black', marginLeft: 3 }}>nomi@gmail.com</Text>
-                                        </View>
-                                        <View style={styles.row}>
-                                            <Icon name="account-box-multiple" size={20} color="black" />
-                                            <Text style={{ color: 'black', marginLeft: 3 }}>17/07/1997</Text>
-                                        </View>
-                                    </View>
-                                </View>
-                            </View>
+                            
 
                             <View style={styles.OrganizedEvent}>
-                                <Text style={{ fontSize: 30, color: 'black' }}>My Proposal</Text>
                                 <View style={{ marginTop: 10 }}>
                                     <CustomCard navigation={navigation}/>
                                     <CustomCard navigation={navigation}/>
@@ -222,8 +101,6 @@ const Profile = ({ navigation }) => {
                     </View>
                 </KeyboardAwareScrollView>
             </SafeAreaView>
-            <FAB onPress={() => { navigation.navigate('addProposal'); }} icon={<MaterialIcons name="add" size={24} color="white" />} placement={'right'} />
-
         </ImageBackground >
     );
 };
