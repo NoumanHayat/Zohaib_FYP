@@ -20,18 +20,6 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 // import { TouchableOpacity } from 'react-native-gesture-handler';
 const Drawer = createDrawerNavigator();
-function AppStartings() {
-  return (
-    <Drawer.Navigator screenOptions={{
-      headerShown: true,
-    }}
-      initialRouteName="Home"
-    >
-      <Drawer.Screen name="Home" component={home} />
-      <Drawer.Screen name="addProposal" component={addProposal} />
-    </Drawer.Navigator>
-  );
-}
 const AppStarting = () => {
   return (
     <Drawer.Navigator
