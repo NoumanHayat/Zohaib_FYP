@@ -59,7 +59,8 @@ const CustomCard = (props) => {
                     </View>
                 </TouchableOpacity>
                 <View style={{ padding: 10 }}>
-                    <Text style={{ fontSize: 23, color: 'black' }}>Here we Go!</Text>
+                <Text style={{ fontSize: 19, color: 'black' }}>Bid : 4500RS</Text>
+                    <Text style={{ fontSize: 19, color: 'black' }}>Summary!</Text>
                     <Text>We will remove extra Barracks and Dark Barracks buildings and
                         only keep one of each. The highest level building will be kept,
                         and in case all the highest level buildings are under construction

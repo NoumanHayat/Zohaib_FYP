@@ -33,6 +33,7 @@ const SignIn = ({ navigation }) => {
   const [password, setPassword] = React.useState('');
   const [rePassword, setRePassword] = React.useState('');
   const [displayName, setDisplayName] = React.useState('');
+  const [aboutyou, setAboutyou] = React.useState('');
   // replaces password text with * on active
   const updateSecureTextEntry = () => {
     setData({
@@ -244,6 +245,7 @@ const SignIn = ({ navigation }) => {
                 />
               </View>
 
+
               <Text style={{ fontSize: 14, marginLeft: 12, marginTop: 30, color: 'black' }}>
                 Location
               </Text>
@@ -265,6 +267,36 @@ const SignIn = ({ navigation }) => {
                     color: 'black',
                   }}
                 />
+              </View>
+              <View >
+                <Text style={{ fontSize: 14, marginLeft: 12, marginTop: 30, color: 'black' }}>About you</Text>
+                <View style={{
+                  flexDirection: 'row',
+                  height: 245,
+                  marginHorizontal: 5,
+                  marginTop: 5,
+                  paddingHorizontal: SIZES.radius,
+                  borderRadius: SIZES.radius,
+                  backgroundColor: COLORS.lightGray,
+                  elevation: 2,
+                }}>
+                  <TextInput
+                    placeholder="Tell something about you..."
+                    onChangeText={value => setAboutyou(value)}
+                    placeholderTextColor="gray"
+                    autoCapitalize={'none'}
+                    multiline={true}
+                    numberOfLines={4}
+                    style={{
+                      flex: 1,
+                      height: 240.5,
+                      fontSize: 15,
+                      marginLeft: 2,
+                      color: 'black',
+
+                    }}
+                  />
+                </View>
               </View>
 
               <TouchableOpacity>
