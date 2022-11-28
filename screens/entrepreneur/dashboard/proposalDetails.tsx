@@ -28,43 +28,45 @@ import { FAB, Card } from 'react-native-elements';
 // @ts-ignore
 // eslint-disable-next-line react/prop-types
 
-const CustomCard = ({navigation}) => {
+const CustomCard = (props) => {
     const [visible, setVisible] = useState(false);
     return (
         <View>
-            <TouchableOpacity onPress={() => {
+            {/* <TouchableOpacity onPress={() => {
                 setVisible(true);
+            }}> */}
+            <View style={{
+                backgroundColor: '#F7F7FE', borderRadius: 10, marginBottom: 15,
+                padding: 5, shadowColor: 'black',
+                shadowOffset: {
+                    width: 10,
+                    height: 10,
+                },
+                shadowOpacity: 0.5,
+                shadowRadius: 1,
+                elevation: 10,
             }}>
-                <View style={{
-                    backgroundColor: '#F7F7FE', borderRadius: 10, marginBottom: 15,
-                    padding: 5, shadowColor: 'black',
-                    shadowOffset: {
-                        width: 10,
-                        height: 10,
-                    },
-                    shadowOpacity: 0.5,
-                    shadowRadius: 1,
-                    elevation: 10,
+                <TouchableOpacity onPress={() => {
+                    setVisible(true);
                 }}>
-                    <View>
-                        {true ? (<Image style={{
-                            width: '100%',
-                            height: 200,
-                            borderRadius: 1,
-                        }} source={{ uri: 'https://clashofclans.com/uploaded-images-blog/_1440xAUTO_crop_center-center_90/Clash-at-Home_thumbnail_builder_906x506.jpg' }} />) :
-                            <View>
-                                <Text>Hello</Text>
-                            </View>}
-                        <View style={{ padding: 10 }}>
-                            <Text style={{ fontSize: 23, color: 'black' }}>Here we Go!</Text>
-                            <Text>We will remove extra Barracks and Dark Barracks buildings and
-                                only keep one of each. The highest level building will be kept,
-                                and in case all the highest level buildings are under construction
-                                you will keep the one with the shortest upgrade time left.</Text>
-                        </View>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 15 }}>
+                        <Image style={{
+                            width: 65,
+                            height: 65,
+                            borderRadius: 360,
+                        }} source={{ uri: 'https://www.bdc.ca/globalassets/digizuite/34593-what-it-takes-to-be-entrepreneur-sm.jpg' }} />
+                        <Text style={{ fontSize: 26, color: 'black', marginLeft: 10 }}>Dr Einstein </Text>
                     </View>
+                </TouchableOpacity>
+                <View style={{ padding: 10 }}>
+                    <Text style={{ fontSize: 23, color: 'black' }}>Here we Go!</Text>
+                    <Text>We will remove extra Barracks and Dark Barracks buildings and
+                        only keep one of each. The highest level building will be kept,
+                        and in case all the highest level buildings are under construction
+                        you will keep the one with the shortest upgrade time left.</Text>
                 </View>
-            </TouchableOpacity>
+            </View>
+            {/* </TouchableOpacity> */}
             <Modal
                 animationType="slide"
                 transparent={true}
@@ -79,22 +81,20 @@ const CustomCard = ({navigation}) => {
                     }}
                 >
                     <View >
-                        <View>
-                            {true ? (<Image style={{
-                                width: '100%',
+                        <View style={{ alignItems: 'center' }}>
+                            <Image style={{
+                                width: 200,
                                 height: 200,
-                                borderRadius: 1,
-                            }} source={{ uri: 'https://clashofclans.com/uploaded-images-blog/_1440xAUTO_crop_center-center_90/Clash-at-Home_thumbnail_builder_906x506.jpg' }} />) :
-                                <View>
-                                    <Text>Hello</Text>
-                                </View>}
-                            <View style={{ padding: 10 }}>
+                                borderRadius: 360,
+                            }} source={{ uri: 'https://www.bdc.ca/globalassets/digizuite/34593-what-it-takes-to-be-entrepreneur-sm.jpg' }} />
+                            <Text style={{ fontSize: 22, color: 'black' }}>Dr Albert Einstein</Text>
+                            {/* <View style={{ padding: 10 }}>
                                 <Text style={{ fontSize: 23, color: 'black' }}>Here we Go!</Text>
                                 <Text>We will remove extra Barracks and Dark Barracks buildings and
                                     only keep one of each. The highest level building will be kept,
                                     and in case all the highest level buildings are under construction
                                     you will keep the one with the shortest upgrade time left....</Text>
-                                    
+
                             </View>
 
                             <View style={{ flexDirection: 'row', marginTop: 10, }}>
@@ -110,14 +110,14 @@ const CustomCard = ({navigation}) => {
                                             padding: 10,
                                             flexDirection: 'row'
                                         }}
-                                        onPress={() => { navigation.push("proposalDetails"); }}
+                                        onPress={() => { alert('working') }}
                                     >
                                         <MaterialIcons name="account-tree" size={24} color="black" />
                                         <Text style={{ color: 'black' }}>Details</Text>
                                     </TouchableOpacity>
                                 </LinearGradient>
                                 <LinearGradient
-                                    colors={ ['#FF0080', '#7928CA']}
+                                    colors={['#FF0080', '#7928CA']}
                                     end={{ x: 0, y: 1 }}
                                     start={{ x: 1, y: 0 }}
                                     style={{ borderRadius: 30, marginLeft: '10%' }}
@@ -156,6 +156,28 @@ const CustomCard = ({navigation}) => {
                                         <Text style={{ color: 'black' }}>Delete</Text>
                                     </TouchableOpacity>
                                 </LinearGradient>
+                            </View> */}
+                        </View>
+                        <View>
+                            <Text style={{ fontSize: 23, color: 'black' }}>Details</Text>
+                            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                                <MaterialIcons name="account-balance" size={24} color="black" />
+                                <Text style={{ fontSize: 18, color: 'black' }}>Mata Transport Private Limited</Text>
+                            </View>
+                            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                                <MaterialIcons name="add-call" size={24} color="black" />
+                                <Text style={{ fontSize: 18, color: 'black' }}>+92300 0000000</Text>
+                            </View>
+                            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                                <MaterialIcons name="email" size={24} color="black" />
+                                <Text style={{ fontSize: 18, color: 'black' }}>myemail@gmail.com</Text>
+                            </View>
+                            <View style={{ flexDirection: 'row',  }}>
+                                <MaterialIcons name="details" size={24} color="black" />
+                                <Text style={{ fontSize: 18, color: 'black' }}>Facebook, American online social network service
+                                 that is part of the company Meta Platforms. Facebook was founded in 2004 by Mark Zuckerberg,
+                                  Eduardo Saverin, Dustin Moskovitz, and Chris Hughes, all of whom were students at Harvard University.
+                                   Facebook became the largest social network in the world.</Text>
                             </View>
                         </View>
                     </View>
@@ -182,48 +204,22 @@ const Profile = ({ navigation }) => {
                         }}>
                         <View style={{ margin: 15, marginTop: 10 }}>
                             <View style={{ margin: 5, justifyContent: 'center', alignItems: 'center', fontWeight: 'bold' }}>
-                                <Text style={{ fontSize: 30, color: 'black' }}>Entrepreneur Dashboard</Text>
+                                <Text style={{ fontSize: 30, color: 'black' }}>Proposal Details</Text>
                             </View>
-                            <View style={styles.userInfoSection}>
-                                <View style={{ flexDirection: 'row', marginTop: 15 }}>
-                                    <Avatar.Image
-                                        source={{ uri: 'https://scontent.fisb17-1.fna.fbcdn.net/v/t1.6435-9/91409052_532157781050259_1039077404946989056_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=7PRB9eFpSDcAX8ZElmv&tn=_pzfnWRgXbf6Di0O&_nc_pt=1&_nc_ht=scontent.fisb17-1.fna&oh=00_AfBO1xTZp0jgQMuO3OmssEqVM1LY60iETPpK-xYQ4ohC4Q&oe=63AAB594' }}
-                                        size={100}
-                                    />
-                                    <View style={{ marginLeft: 20 }}>
-                                        <View style={styles.row}>
-                                            <Icon name="account" size={20} color="black" />
-                                            <Text style={{ color: 'black', marginLeft: 3 }}>Nouman</Text>
-                                        </View>
-                                        <View style={styles.row}>
-                                            <Icon name="email" color="black" size={20} />
-                                            <Text style={{ color: 'black', marginLeft: 3 }}>nomi@gmail.com</Text>
-                                        </View>
-                                        <View style={styles.row}>
-                                            <Icon name="account-box-multiple" size={20} color="black" />
-                                            <Text style={{ color: 'black', marginLeft: 3 }}>17/07/1997</Text>
-                                        </View>
-                                    </View>
-                                </View>
-                            </View>
-
                             <View style={styles.OrganizedEvent}>
-                                <Text style={{ fontSize: 30, color: 'black' }}>My Proposal</Text>
                                 <View style={{ marginTop: 10 }}>
-                                    <CustomCard navigation={navigation}/>
-                                    <CustomCard navigation={navigation}/>
-                                    <CustomCard navigation={navigation}/>
-                                    <CustomCard navigation={navigation}/>
-                                    <CustomCard navigation={navigation}/>
-                                    <CustomCard navigation={navigation}/>
+                                    <CustomCard />
+                                    <CustomCard />
+                                    <CustomCard />
+                                    <CustomCard />
+                                    <CustomCard />
+                                    <CustomCard />
                                 </View>
                             </View>
                         </View>
                     </View>
                 </KeyboardAwareScrollView>
             </SafeAreaView>
-            <FAB onPress={() => { navigation.navigate('addProposal'); }} icon={<MaterialIcons name="add" size={24} color="white" />} placement={'right'} />
-
         </ImageBackground >
     );
 };

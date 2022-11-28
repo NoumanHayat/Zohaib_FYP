@@ -14,21 +14,8 @@ import {
 } from 'react-native';
 import { images, SIZES } from '../../../constants';
 import home from './home';
+import addProposal from './addProposal';
 // import { TouchableOpacity } from 'react-native-gesture-handler';
-const Screen = ({ navigation }) => {
-    return (
-        <ImageBackground
-            source={images.background} resizeMode="cover"
-            style={{
-                flex: 1,
-                paddingVertical: SIZES.padding,
-            }}>
-            <View style={{ flex: 0.8, justifyContent: 'center', alignItems: 'center' }}>
-                <Text style={{ fontSize: 35, color: 'black', fontWeight: "bold" }}>Please Select User Type?</Text>
-            </View>
-       </ImageBackground >
-    );
-};
 const Drawer = createDrawerNavigator();
 function AppStarting() {
     return (
@@ -38,8 +25,7 @@ function AppStarting() {
           initialRouteName="Home"
         >
           <Drawer.Screen name="Home" component={home} />
-          <Drawer.Screen name="Search Drama" component={Screen} />
-          <Drawer.Screen name="Search Result"  component={Screen} />
+          <Drawer.Screen name="addProposal" component={addProposal} />
         </Drawer.Navigator>
     );
   }

@@ -18,7 +18,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SignUp from './account/SignUp';
 import SignIn from './account/SignIn';
 import dashboard from './dashboard';
-import addProposal from './dashboard/addProposal';
+// import addProposal from './dashboard/addProposal';
+import proposalDetails from './dashboard/proposalDetails';
 // import { TouchableOpacity } from 'react-native-gesture-handler';
 const Screen = ({ navigation }) => {
   return (
@@ -45,7 +46,8 @@ function AppStarting() {
       <Stack.Screen name="SignUp" component={SignUp} />
       <Stack.Screen name="SignIn" component={SignIn} />
       <Stack.Screen name="dashboard" component={dashboard} />
-      <Stack.Screen name="addProposal" component={addProposal} />
+      {/* <Stack.Screen name="addProposal" component={addProposal} /> */}
+      <Stack.Screen name="proposalDetails" component={proposalDetails} />
     </Stack.Navigator>
   );
 }
