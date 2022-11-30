@@ -54,7 +54,7 @@ const CustomCard = ({ navigation }) => {
                         }} source={{ uri: 'https://clashofclans.com/uploaded-images-blog/_1440xAUTO_crop_center-center_90/Clash-at-Home_thumbnail_builder_906x506.jpg' }} />
                         <View style={{ padding: 10 }}>
                             <Text style={{ fontSize: 23, color: 'black' }}>Here is title!</Text>
-                            <Text>We will remove extra Barracks and Dark Barracks buildings and
+                            <Text style={{color: 'black'}}>We will remove extra Barracks and Dark Barracks buildings and
                                 only keep one of each. The highest level building will be kept,
                                 and in case all the highest level buildings are under construction
                                 you will keep the one with the shortest upgrade time left.</Text>
@@ -69,6 +69,7 @@ const CustomCard = ({ navigation }) => {
                                     borderRadius: 360,
                                 }} source={{ uri: 'https://www.bdc.ca/globalassets/digizuite/34593-what-it-takes-to-be-entrepreneur-sm.jpg' }} />
                                 <Text style={{ fontSize: 26, color: 'black', marginLeft: 10 }}>Dr Einstein </Text>
+                                <Text style={{alignSelf:'flex-end'}}>Online 3 min ago</Text>
                             </View>
                         </TouchableOpacity>
 
@@ -96,6 +97,7 @@ const CustomCard = ({ navigation }) => {
                                 borderRadius: 360,
                             }} source={{ uri: 'https://www.bdc.ca/globalassets/digizuite/34593-what-it-takes-to-be-entrepreneur-sm.jpg' }} />
                             <Text style={{ fontSize: 22, color: 'black' }}>Dr Albert Einstein</Text>
+                            {/* <Text>Online 3 min ago</Text> */}
                             {/* <View style={{ padding: 10 }}>
                                 <Text style={{ fontSize: 23, color: 'black' }}>Here we Go!</Text>
                                 <Text>We will remove extra Barracks and Dark Barracks buildings and

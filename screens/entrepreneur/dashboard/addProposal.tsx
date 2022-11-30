@@ -76,7 +76,7 @@ const Screen = ({ navigation }) => {
 
                             <View style={styles.picBoxSign}>
                                 <TouchableOpacity onPress={() => { alert("working"); }}>
-                                    <Text>Choose File</Text>
+                                    <Text style={{color: 'black'}}>Choose File</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>
@@ -147,7 +147,7 @@ const Screen = ({ navigation }) => {
 
                             <View style={styles.picBoxSign}>
                                 <TouchableOpacity onPress={() => { alert("working"); }}>
-                                    <Text>Choose File</Text>
+                                    <Text style={{color: 'black'}}>Choose File</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>

@@ -55,7 +55,7 @@ const CustomCard = ({navigation}) => {
                         <View style={{ padding: 10 }}>
                         <Text style={{ fontSize: 15, color: 'gray',alignSelf:'flex-end' }}>Posted 40 min ago</Text>
                             <Text style={{ fontSize: 23, color: 'black' }}>Here we Go!</Text>
-                            <Text>We will remove extra Barracks and Dark Barracks buildings and
+                            <Text style={{color: 'black'}}>We will remove extra Barracks and Dark Barracks buildings and
                                 only keep one of each. The highest level building will be kept,
                                 and in case all the highest level buildings are under construction
                                 you will keep the one with the shortest upgrade time left.</Text>
@@ -86,7 +86,7 @@ const CustomCard = ({navigation}) => {
 
                             <View style={{ padding: 10 }}>
                                 <Text style={{ fontSize: 23, color: 'black' }}>Here we Go!</Text>
-                                <Text>We will remove extra Barracks and Dark Barracks buildings and
+                                <Text style={{color: 'black'}}>We will remove extra Barracks and Dark Barracks buildings and
                                     only keep one of each. The highest level building will be kept,
                                     and in case all the highest level buildings are under construction
                                     you will keep the one with the shortest upgrade time left....</Text>
