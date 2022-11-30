@@ -17,6 +17,8 @@ import CustomDrawer from '../../Components/CustomDrawer';
 import home from './home';
 import addProposal from './addProposal';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import inbox from './inbox';
 
 // import { TouchableOpacity } from 'react-native-gesture-handler';
 const Drawer = createDrawerNavigator();
@@ -50,6 +52,16 @@ const AppStarting = () => {
         options={{
           drawerIcon: ({ color }) => (
             <Ionicons name="person-outline" size={22} color={color} />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="inbox"
+        component={inbox}
+        options={{
+          drawerIcon: ({ color }) => (
+            <MaterialCommunityIcons name="message" size={24} color="black" />
+            // <Ionicons name="person-outline" size={22} color={color} />
           ),
         }}
       />

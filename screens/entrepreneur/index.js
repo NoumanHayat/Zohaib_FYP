@@ -20,6 +20,7 @@ import SignIn from './account/SignIn';
 import dashboard from './dashboard';
 // import addProposal from './dashboard/addProposal';
 import proposalDetails from './dashboard/proposalDetails';
+import chat from './dashboard/chat';
 // import { TouchableOpacity } from 'react-native-gesture-handler';
 const Screen = ({ navigation }) => {
   return (
@@ -48,6 +49,7 @@ function AppStarting() {
       <Stack.Screen name="dashboard" component={dashboard} />
       {/* <Stack.Screen name="addProposal" component={addProposal} /> */}
       <Stack.Screen name="proposalDetails" component={proposalDetails} />
+      <Stack.Screen name="Chat" component={chat} />
     </Stack.Navigator>
   );
 }

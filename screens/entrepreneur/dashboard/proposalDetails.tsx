@@ -28,7 +28,7 @@ import { FAB, Card } from 'react-native-elements';
 // @ts-ignore
 // eslint-disable-next-line react/prop-types
 
-const CustomCard = (props) => {
+const CustomCard = ({navigation}) => {
     const [visible, setVisible] = useState(false);
     return (
         <View>
@@ -59,7 +59,7 @@ const CustomCard = (props) => {
                     </View>
                 </TouchableOpacity>
                 <View style={{ padding: 10 }}>
-                <Text style={{ fontSize: 19, color: 'black' }}>Bid : 4500RS</Text>
+                    <Text style={{ fontSize: 19, color: 'black' }}>Bid : 4500RS</Text>
                     <Text style={{ fontSize: 19, color: 'black' }}>Summary!</Text>
                     <Text>We will remove extra Barracks and Dark Barracks buildings and
                         only keep one of each. The highest level building will be kept,
@@ -160,6 +160,11 @@ const CustomCard = (props) => {
                             </View> */}
                         </View>
                         <View>
+                            <TouchableOpacity onPress={()=>{navigation.push('Chat')}}>
+                                <View style={{ backgroundColor: 'blue', borderRadius: 20 }}>
+                                    <Text style={{ fontSize: 23, color: 'white', alignSelf: 'center' }}>Message</Text>
+                                </View>
+                            </TouchableOpacity>
                             <Text style={{ fontSize: 23, color: 'black' }}>Details</Text>
                             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                                 <MaterialIcons name="account-balance" size={24} color="black" />
@@ -173,12 +178,12 @@ const CustomCard = (props) => {
                                 <MaterialIcons name="email" size={24} color="black" />
                                 <Text style={{ fontSize: 18, color: 'black' }}>myemail@gmail.com</Text>
                             </View>
-                            <View style={{ flexDirection: 'row',  }}>
+                            <View style={{ flexDirection: 'row', }}>
                                 <MaterialIcons name="details" size={24} color="black" />
                                 <Text style={{ fontSize: 18, color: 'black' }}>Facebook, American online social network service
-                                 that is part of the company Meta Platforms. Facebook was founded in 2004 by Mark Zuckerberg,
-                                  Eduardo Saverin, Dustin Moskovitz, and Chris Hughes, all of whom were students at Harvard University.
-                                   Facebook became the largest social network in the world.</Text>
+                                    that is part of the company Meta Platforms. Facebook was founded in 2004 by Mark Zuckerberg,
+                                    Eduardo Saverin, Dustin Moskovitz, and Chris Hughes, all of whom were students at Harvard University.
+                                    Facebook became the largest social network in the world.</Text>
                             </View>
                         </View>
                     </View>
@@ -209,12 +214,14 @@ const Profile = ({ navigation }) => {
                             </View>
                             <View style={styles.OrganizedEvent}>
                                 <View style={{ marginTop: 10 }}>
-                                    <CustomCard />
-                                    <CustomCard />
-                                    <CustomCard />
-                                    <CustomCard />
-                                    <CustomCard />
-                                    <CustomCard />
+                                    <CustomCard navigation={navigation} />
+                                    <CustomCard navigation={navigation} />
+                                    <CustomCard navigation={navigation} />
+                                    <CustomCard navigation={navigation} />
+                                    <CustomCard navigation={navigation} />
+                                    <CustomCard navigation={navigation} />
+                                    <CustomCard navigation={navigation} />
+                                    <CustomCard navigation={navigation} />
                                 </View>
                             </View>
                         </View>
