@@ -37,7 +37,7 @@ const Screen = ({ navigation }) => {
                                     <Card.Image
                                         style={{ width: 80, height: 70 }}
                                         resizeMode="cover"
-                                        source={{uri:'https://images.ctfassets.net/6hm9tr1vnfzt/EXzxTBMVMAG4j4L73OVh0/4471a9d56eb999f3836ab3a5f7913f26/Blade1_Hero.jpg'}}
+                                        source={require('../../assets/images/enter.jpg')}
                                     />
                                 </View>
                                 <Card.Title>Entrepreneur</Card.Title>
@@ -51,7 +51,7 @@ const Screen = ({ navigation }) => {
                                     <Card.Image
                                         style={{ width: 70, height: 70 }}
                                         resizeMode="cover"
-                                        source={{uri:'https://www.shutterstock.com/image-photo/investor-business-concept-600w-204816103.jpg'}}
+                                        source={require('../../assets/images/invesment.jpg')}
                                     />
                                 </View>
                                 <Card.Title>investor</Card.Title>

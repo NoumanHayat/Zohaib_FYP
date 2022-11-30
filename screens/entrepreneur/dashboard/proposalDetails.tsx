@@ -191,7 +191,7 @@ const CustomCard = ({navigation}) => {
             </Modal>
         </View>
     );
-};
+}; 
 const Profile = ({ navigation }) => {
     return (
         <ImageBackground
